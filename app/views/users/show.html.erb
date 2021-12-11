@@ -6,6 +6,15 @@
 <h3>年齢</h3>
 <%= @user.age %>
 
+<h3>アバター</h3>
+<p>
+  <% if @user.avatar.attached? %>
+    <%= image_tag @user.avatar %>
+    <% else %>
+    <%"leave it blank if you don't want to change it"%>
+  <% end %>
+</p>
+
 <h3>メールアドレス</h3>
 <%= @user.email %>
 
