@@ -1,0 +1,2 @@
+class YoutubeChannelReview < ApplicationRecord
+end

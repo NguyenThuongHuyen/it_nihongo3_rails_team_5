@@ -1,25 +1,76 @@
-<p id="notice"><%= notice %></p>
+<div class="row">
 
-<p>
-  <strong>Title:</strong>
-  <%= @youtube_channel.title %>
-</p>
 
-<p>
-  <% if @youtube_channel.image.attached? %>
-  <%= image_tag @youtube_channel.image %>
-  <% end %>
-</p>
+	<div class="col-md-8">
 
-<p>
-  <strong>Description:</strong>
-  <%= @youtube_channel.description %>
-</p>
+		<div class="youtube_channel-info">
 
-<p>
-  <strong>Owner:</strong>
-  <%= @youtube_channel.owner %>
-</p>
+			<h2 class="youtube_channel-title"><%= @youtube_channel.title %></h2>
+			<h3 class="youtube_channel-owner"><span>From</span> <%= @youtube_channel.owner %></h3>
+			<p>
+              <strong>Link:</strong>
+              <%= link_to @youtube_channel.channel_URL, target: "_blank" %>
+            </p>
+			<h2 class="avg-rating">Average Rating</h2>
+			<div class="average-review-rating" data-score=<%= @average_review %>></div>
+			<span class="number-of-reviews">Based on <%= @youtube_channel.youtube_channel_review.count %> reviews</span>
+			<p class="youtube_channels-desc"><%= @youtube_channel.description %></p>
+			<%= link_to 'Edit', edit_youtube_channel_path(@youtube_channel) %> |
+            <%= link_to 'Back', youtube_channels_path %>
+            <h2>Review List</h2>
+            <ul>
+            <% @youtube_channel.youtube_channel_review.each do |youtube_channel_review|%>
+            <li><%= youtube_channel_review.review %>
+            (<i><%= youtube_channel_review.user_id %></i>)</li>
+            <% end %>
+		</div>
+	</div>
 
-<%= link_to 'Edit', edit_youtube_channel_path(@youtube_channel) %> |
-<%= link_to 'Back', youtube_channels_path %>
+
+</div>
+
+<div class="row">
+
+	<div class="col-md-4">
+
+		<div class="reviews">
+
+			<!-- Where the reviews/ratings will go -->
+			<h1>Reviews</h1>
+
+
+			<div>
+				<%= link_to "Add Review", new_youtube_channel_review_path(@youtube_channel), class: "btn-custom" %>
+			</div>
+
+		</div>	
+
+	</div>
+
+</div>
+
+
+
+
+
+<script>
+	$('.review-rating').raty({
+		readOnly: true,
+		score: function() {
+			return $(this).attr('data-score');
+		},
+		path: '/assets/'
+	});
+</script>
+
+
+<script>
+	$('.average-review-rating').raty({
+		readOnly: true,
+		path: '/assets/',
+		score: function() {
+			return $(this).attr('data-score')
+		}
+	});
+</script>
+
