@@ -8,6 +8,7 @@ class YoutubeChannelsController < ApplicationController
 
   # GET /youtube_channels/1 or /youtube_channels/1.json
   def show
+    @youtube_channel_reviews = YoutubeChannelReview.new
   end
 
   # GET /youtube_channels/new

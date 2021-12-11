@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User:</strong>
+  <%= @youtube_channel_review.user_id %>
+</p>
+
+<p>
+  <strong>Youtube channel:</strong>
+  <%= @youtube_channel_review.youtube_channel_id %>
+</p>
+
+<p>
+  <strong>Rating:</strong>
+  <%= @youtube_channel_review.rating %>
+</p>
+
+<p>
+  <strong>Review:</strong>
+  <%= @youtube_channel_review.review %>
+</p>
+
+<%= link_to 'Edit', edit_youtube_channel_review_path(@youtube_channel_review) %> |
+<%= link_to 'Back', youtube_channel_reviews_path %>
