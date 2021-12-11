@@ -64,6 +64,6 @@ class YoutubeChannelsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def youtube_channel_params
-      params.require(:youtube_channel).permit(:title, :description, :owner)
+      params.require(:youtube_channel).permit(:title, :description, :owner, :image)
     end
 end
