@@ -6,6 +6,12 @@
 </p>
 
 <p>
+  <% if @youtube_channel.image.attached? %>
+  <%= image_tag @youtube_channel.image %>
+  <% end %>
+</p>
+
+<p>
   <strong>Description:</strong>
   <%= @youtube_channel.description %>
 </p>
