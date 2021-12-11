@@ -1,6 +1,6 @@
 class YoutubeChannelsController < ApplicationController
   before_action :set_youtube_channel, only: %i[ show edit update destroy ]
-  before_action :authenticate_user!
+  before_action :authenticate_user!, only: [:new, :edit]
   # GET /youtube_channels or /youtube_channels.json
   def index
     @youtube_channels = YoutubeChannel.all
@@ -65,6 +65,6 @@ class YoutubeChannelsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def youtube_channel_params
-      params.require(:youtube_channel).permit(:title, :description, :owner, :image)
+      params.require(:youtube_channel).permit(:title, :description, :owner, :image, :channel_URL)
     end
 end
