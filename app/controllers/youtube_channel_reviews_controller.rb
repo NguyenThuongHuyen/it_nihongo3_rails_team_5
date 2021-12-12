@@ -22,7 +22,7 @@ class YoutubeChannelReviewsController < ApplicationController
   # POST /youtube_channel_reviews or /youtube_channel_reviews.json
   def create
     @youtube_channel_review = YoutubeChannelReview.new(youtube_channel_review_params)
-
+    @youtube_channel_review.user_id = current_user.id
     respond_to do |format|
       if @youtube_channel_review.save
         format.html { redirect_to @youtube_channel_review, notice: "Youtube channel review was successfully created." }

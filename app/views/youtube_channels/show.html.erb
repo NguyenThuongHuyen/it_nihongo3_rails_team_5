@@ -4,12 +4,13 @@
 	<div class="col-md-8">
 
 		<div class="youtube_channel-info">
-
+		    
+		    <%= image_tag(@youtube_channel.image, :size => "100x100", class: "css-style")%>
 			<h2 class="youtube_channel-title"><%= @youtube_channel.title %></h2>
-			<h3 class="youtube_channel-owner"><span>From</span> <%= @youtube_channel.owner %></h3>
+			<h3 class="youtube_channel-owner"><span>Owner:</span> <%= @youtube_channel.owner %></h3>
 			<p>
               <strong>Link:</strong>
-              <%= link_to @youtube_channel.channel_URL, target: "_blank" %>
+              <%= link_to @youtube_channel.channel_URL, target: :_blank %>
             </p>
 			<h2 class="avg-rating">Average Rating</h2>
 			<div class="average-review-rating" data-score=<%= @average_review %>></div>
@@ -21,7 +22,7 @@
             <ul>
             <% @youtube_channel.youtube_channel_review.each do |youtube_channel_review|%>
             <li><%= youtube_channel_review.review %>
-            (<i><%= youtube_channel_review.user_id %></i>)</li>
+            (<i><%= youtube_channel_review.user.name  %></i>)</li>
             <% end %>
 		</div>
 	</div>
@@ -35,12 +36,13 @@
 
 		<div class="reviews">
 
-			<!-- Where the reviews/ratings will go -->
-			<h1>Reviews</h1>
+			<div>
+                <h1>Reviews</h1>
 
 
 			<div>
 				<%= link_to "Add Review", new_youtube_channel_review_path(@youtube_channel), class: "btn-custom" %>
+			</div>
 			</div>
 
 		</div>	
