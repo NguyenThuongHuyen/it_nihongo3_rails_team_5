@@ -1,6 +1,6 @@
 class YoutubeChannelsController < ApplicationController
   before_action :set_youtube_channel, only: %i[ show edit update destroy ]
-  before_action :authenticate_user!, only: [:new, :edit]
+  before_action :authenticate_user!
   # GET /youtube_channels or /youtube_channels.json
   def index
     @youtube_channels = YoutubeChannel.all
@@ -8,7 +8,7 @@ class YoutubeChannelsController < ApplicationController
 
   # GET /youtube_channels/1 or /youtube_channels/1.json
   def show
-    @youtube_channel_reviews = YoutubeChannelReview.new
+    @youtube_channel_review = YoutubeChannelReview.new
   end
 
   # GET /youtube_channels/new
@@ -56,7 +56,7 @@ class YoutubeChannelsController < ApplicationController
       format.json { head :no_content }
     end
   end
-
+  
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_youtube_channel

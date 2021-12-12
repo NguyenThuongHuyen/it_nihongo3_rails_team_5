@@ -25,7 +25,9 @@ class YoutubeChannelReviewsController < ApplicationController
     @youtube_channel_review.user_id = current_user.id
     respond_to do |format|
       if @youtube_channel_review.save
-        format.html { redirect_to @youtube_channel_review, notice: "Youtube channel review was successfully created." }
+        url = "/youtube_channels/" + @youtube_channel_review.youtube_channel_id.to_s
+        format.html { redirect_to url, notice: "Youtube channel review was successfully updated." }
+        # format.html { redirect_to @youtube_channel_review, notice: "Youtube channel review was successfully created." }
         format.json { render :show, status: :created, location: @youtube_channel_review }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -39,6 +41,7 @@ class YoutubeChannelReviewsController < ApplicationController
     respond_to do |format|
       if @youtube_channel_review.update(youtube_channel_review_params)
         format.html { redirect_to @youtube_channel_review, notice: "Youtube channel review was successfully updated." }
+        
         format.json { render :show, status: :ok, location: @youtube_channel_review }
       else
         format.html { render :edit, status: :unprocessable_entity }
