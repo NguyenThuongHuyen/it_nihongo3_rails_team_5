@@ -1,6 +1,8 @@
 class YoutubeChannel < ApplicationRecord
     has_one_attached :image
     has_many :youtube_channel_review, -> { order "created_at DESC"}
+    
+validates :title, presence: true
 validate :correct_image_type
 
 def correct_image_type
