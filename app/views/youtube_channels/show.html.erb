@@ -10,21 +10,21 @@
 			<h2 class="youtube_channel-owner"><strong>Owner:</strong> <%= @youtube_channel.owner %></h2>
 			<p>
               <strong>Link:</strong>
-              <%= link_to @youtube_channel.channel_URL, target: :_blank %>
+              <%= link_to @youtube_channel.channel_URL, target: '_blank' %>
             </p>
 			
 			<p class="youtube_channels-desc"><strong>Description:</strong> <%= @youtube_channel.description %></p>
 
             
             <%= link_to "Edit", edit_youtube_channel_path(@youtube_channel), class: "btn btn-custom" %>
-			<%= link_to "Delete", youtube_channels_path(@book), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-custom" %>
+			
 			<%= link_to 'Back', youtube_channels_path, class: "btn btn-custom" %>
 			
 			<span class="number-of-reviews">Based on <%= @youtube_channel.youtube_channel_review.count %> reviews</span>
             <h2>Review List</h2>
             <ul>
             <% @youtube_channel.youtube_channel_review.each do |youtube_channel_review|%>
-            <li><%= youtube_channel_review.review %> ( <i><%= youtube_channel_review.rating %>star </i>)
+            <li><%= youtube_channel_review.review %> ( <i><%= youtube_channel_review.rating %> star </i>)
             (<i><%= youtube_channel_review.user.name  %></i>)</li>
             <% end %>
 		</div>
