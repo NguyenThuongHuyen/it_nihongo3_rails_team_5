@@ -9,8 +9,6 @@ require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
 
-import 'bootstrap'
-import '../src/application.scss'
 
 
 // Uncomment to copy all static images under ../images to the output folder and reference
@@ -20,6 +18,4 @@ import '../src/application.scss'
 // const images = require.context('../images', true)
 // const imagePath = (name) => images(name, true)
 
-//= require bootstrap-sprockets
-//= require jquery
-//= require jquery_ujs
+

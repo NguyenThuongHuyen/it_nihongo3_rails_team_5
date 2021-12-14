@@ -17,7 +17,7 @@
 
             
             <%= link_to "Edit", edit_youtube_channel_path(@youtube_channel), class: "btn btn-custom" %>
-			<%= link_to  "Delete", youtube_channels_path(@youtube_channel), :method => :delete, data: { confirm: "Are you sure?" }, class: "btn btn-custom" %>
+			<%= button_to  "Delete", youtube_channel_path(@youtube_channel), :method => :delete, data: { confirm: "Are you sure?" }, class: "btn btn-custom" %>
 			<%= link_to 'Back', youtube_channels_path, class: "btn btn-custom" %>
 			
 			<span class="number-of-reviews">Based on <%= @youtube_channel.youtube_channel_review.count %> reviews</span>
@@ -52,7 +52,7 @@
                     <div>
                      <%= form.hidden_field :youtube_channel_id, :value => @youtube_channel.id %>
                    </div>
-                       <div class="actions">
+                       <div class="actions", >
                          <%= form.submit %>
                        </div>
                      <% end %>
